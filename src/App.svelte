@@ -103,7 +103,7 @@
 		border: 0.45vh solid #555;
 		text-align: center;
 		font-size: 2vh;
-		opacity: 0.5;
+		opacity: 0.75;
 	}
 
 	td.active-month {
