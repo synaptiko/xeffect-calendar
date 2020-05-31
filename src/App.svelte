@@ -12,7 +12,7 @@
 	import setWeek from 'date-fns/setWeek';
 
 	const year = 2020;
-	const month = 2; // 0-based
+	const month = 5; // 0-based
 	const firstMonthDate = new Date(year, month, 1);
 	const lastMonthDate = lastDayOfMonth(firstMonthDate);
 	const weekOptions = { weekStartsOn: 1 };
@@ -20,8 +20,16 @@
 	const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 	const weeks = [];
 
+	function getLastCalendarDate() {
+		if (isSameDay(lastMonthDate, setDay(lastMonthDate, 0))) {
+			return setDay(lastMonthDate, 0);
+		} else {
+			return setDay(lastMonthDate, 7);
+		}
+	}
+
 	let firstCalendarDate = setDay(firstMonthDate, 1);
-	const lastCalendarDate = setDay(lastMonthDate, 7);
+	const lastCalendarDate = getLastCalendarDate();
 
 	if (isAfter(firstCalendarDate, firstMonthDate)) {
 		firstCalendarDate = setWeek(firstCalendarDate, getWeek(firstCalendarDate, weekOptions) - 1, weekOptions);
@@ -102,11 +110,12 @@
 	td {
 		border: 0.45vh solid #555;
 		text-align: center;
-		font-size: 2vh;
-		opacity: 0.75;
+		font-size: 1.25vh;
+		opacity: 0.65;
 	}
 
 	td.active-month {
 		opacity: 1;
+		font-size: 2vh;
 	}
 </style>
