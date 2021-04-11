@@ -11,8 +11,8 @@
 	import getWeek from 'date-fns/getWeek';
 	import setWeek from 'date-fns/setWeek';
 
-	const year = 2020;
-	const month = 5; // 0-based
+	const year = 2021;
+	const month = 4; // 0-based
 	const firstMonthDate = new Date(year, month, 1);
 	const lastMonthDate = lastDayOfMonth(firstMonthDate);
 	const weekOptions = { weekStartsOn: 1 };
